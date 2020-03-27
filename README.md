@@ -5,7 +5,7 @@ A bunch of convenience scripts that I personally use to create and spin-up a Med
 ## Usage
 
 * Git clone this repository
-* `cd` into the directory cloned repository
+* `cd` into the directory of the cloned repository
 * Give execute permissions to the current user for all scripts in the directory
 * run `./setup`
 * `source ~/.bashrc`
