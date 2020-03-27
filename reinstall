@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+cd $MW_INSTALL_DIR;
+docker-compose down;
+mv LocalSettings.php LocalSettings_old.php;
+sudo rm -rf cache/sqlite;
+
+docker-compose up -d;
+
+docker-compose exec mediawiki composer update;
+
+docker-compose exec mediawiki \
+bash -c 'php maintenance/install.php \
+--server $MW_SERVER \
+--scriptpath=$MW_SCRIPTPATH \
+--dbtype $MW_DBTYPE \
+--dbpath $MW_DBPATH \
+--lang $MW_LANG \
+--pass $MW_PASS \
+$MW_SITENAME $MW_USER';
+
+docker-compose exec mediawiki bash -c 'php maintenance/update.php';
+
+read -p "Reinstall old LocalSettings.php ? [yN] :" $reply;
+
+if [[ "$reply" == "y" ]]; then
+	rm -rf LocalSettings.php;
+	mv LocalSettings_old.php LocalSettings.php;
+fi
+

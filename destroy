@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd $MW_INSTALL_DIR;
+docker-compose down

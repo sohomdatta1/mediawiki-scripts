@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mw () {
+	if [[ "$@" == "" ]]; then
+		cd $MW_INSTALL_DIR;
+	else
+		$MW_SCRIPTS_DIR/"$@";
+	fi
+}
+
+complete -W "install reinstall start stop bash" mw
