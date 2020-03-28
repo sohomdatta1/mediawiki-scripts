@@ -3,4 +3,4 @@ export TEMPDIR=$(pwd)
 cd $MW_INSTALL_DIR;
 docker-compose start;
 cd $TEMPDIR;
-unset $TEMPDIR
+unset TEMPDIR
