@@ -29,4 +29,5 @@ The benefit here is that you can run all these commands wherever you are in the 
   * Clone the repo to the extension directory
   * Add `wfLoadExtension( 'extensionname' );` to LocalSettings.php
   * Run the update script
+* A git-update script to bring all extensions, skins and the core itself up-to-date with the origin/master on github.
 * ... (Suggestion are certainly welcomed)
