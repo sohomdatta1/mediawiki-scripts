@@ -22,7 +22,7 @@ You get a few commands that allow you to control the MediaWiki-docker instance
 
 The benefit here is that you can run all these commands wherever you are in the system. You won't need to navigate away from whatever you are doing.
 
-**Note**: This repository is actually inspired by the old [MediaWiki-docker-dev](https://github.com/addshore/mediawiki-docker-dev) repositories scripts.
+**Note**: This repository is actually inspired by the scripts present in the old [MediaWiki-docker-dev](https://github.com/addshore/mediawiki-docker-dev) repository.
 
 ## Future ideas to implement
 * Maybe a generic extension installation script doing the following
