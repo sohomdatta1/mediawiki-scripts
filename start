@@ -1,6 +1,5 @@
 #!/bin/bash
-export TEMPDIR=$(pwd)
+
+set -e;
 cd $MW_INSTALL_DIR;
 docker-compose start;
-cd $TEMPDIR;
-unset TEMPDIR

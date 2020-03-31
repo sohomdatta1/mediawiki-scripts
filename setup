@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "export MW_SCRIPTS_DIR="$(pwd) >> ~/.bashrc
-echo "source "$(pwd)"/mw" >> ~/.bashrc
+set -e;
+echo "export MW_SCRIPTS_DIR="$(pwd) >> ~/.bashrc;
+echo "source "$(pwd)"/mw" >> ~/.bashrc;
 
 

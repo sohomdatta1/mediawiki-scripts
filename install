@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -e;
 git clone https://gerrit.wikimedia.org/r/mediawiki/core.git mediawiki;
 cd mediawiki;

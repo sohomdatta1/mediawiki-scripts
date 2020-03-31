@@ -1,5 +1,6 @@
 #!/bin/bash
-set -e
+
+set -e;
 cd $MW_INSTALL_DIR;
 docker-compose down;
 mv LocalSettings.php LocalSettings_old.php;
@@ -21,7 +22,7 @@ $MW_SITENAME $MW_USER';
 
 docker-compose exec mediawiki bash -c 'php maintenance/update.php';
 
-read -p "Reinstall old LocalSettings.php ? [yN] :" $reply;
+read -p "Reinstall old LocalSettings.php ? [y|N] :" $reply;
 
 if [[ "$reply" == "y" ]]; then
 	rm -rf LocalSettings.php;
