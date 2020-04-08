@@ -25,9 +25,9 @@ The benefit here is that you can run all these commands wherever you are in the 
 **Note**: This repository is actually inspired by the scripts present in the old [MediaWiki-docker-dev](https://github.com/addshore/mediawiki-docker-dev) repository.
 
 ## Future ideas to implement
-* Maybe a generic extension installation script doing the following
+* <s>Maybe a generic extension installation script doing the following
   * Clone the repo to the extension directory
   * Add `wfLoadExtension( 'extensionname' );` to LocalSettings.php
-  * Run the update script
+  * Run the update script</s>**(Doing in the form of `mw get`)**
 * A git-update script to bring all extensions, skins and the core itself up-to-date with the origin/master on github.
 * ... (Suggestion are certainly welcomed)

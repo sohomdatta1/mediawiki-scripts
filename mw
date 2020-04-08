@@ -8,4 +8,4 @@ mw () {
 	fi
 }
 
-complete -W "install reinstall start stop bash" mw;
+complete -W "install reinstall start stop bash get" mw;
