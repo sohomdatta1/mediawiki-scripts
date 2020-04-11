@@ -2,7 +2,9 @@
 A bunch of convenience scripts that I personally use to create and spin-up a [MediaWiki-docker](https://www.mediawiki.org/wiki/MediaWiki-Docker) (the new one) instance on any linux machine. It's especially useful if you keep on bricking/get bored with your linux distribution and reinstall everything every two months or so (me).
 
 ## Usage
-> :warning: [`docker`](https://docs.docker.com/install/) and [`docker-compose`](https://docs.docker.com/compose/install/) must be installed before cloning this repo.
+> :hand: [`docker`](https://docs.docker.com/engine/install/) and [`docker-compose`](https://docs.docker.com/compose/install/) must be installed before cloning this repo. 
+
+> :warning: Follow the [post-install instructions](https://docs.docker.com/engine/install/linux-postinstall/) to make sure you can run `docker` commands without `sudo`.
 * Git clone this repository
 * `cd` into the directory of the cloned repository
 * Give execute permissions to the current user for all scripts in the directory
