@@ -1,0 +1,2 @@
+#!/bin/bash
+cd $MW_INSTALL_DIR && $EDITOR LocalSettings.php
