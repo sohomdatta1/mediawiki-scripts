@@ -1,0 +1,2 @@
+# Ignore mediawiki files in case cloned in the same directory
+mediawiki/**

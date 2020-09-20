@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -e
+
+echo "This script may take a long while to run!";
+
+mw_git_actions(){
+	echo "Stashing any un-commited changes";
+	git stash;
+	echo "Switching to the master branch";
+	git checkout master;
+	git stash;
+	git pull;
+}
+
+cd $MW_INSTALL_DIR;
+mw_git_actions;
+(cd extensions;
+for i in */; do
+	(echo "Updating git repository for mediawiki/extensions/$i";
+	cd "$i";
+	mw_git_actions "$i";);
+done );
+(cd skins;
+for i in */; do
+	(echo "Updating git repository for mediawiki/skins/$i";
+	cd "$i";
+	mw_git_actions "$i";);
+done );
+docker-compose exec mediawiki bash -c 'composer update'
+docker-compose exec mediawiki bash -c 'php maintenance/update.php'

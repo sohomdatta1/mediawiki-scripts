@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "   ____ ___ _      __";
+echo "  / __ \`__ \ | /| / /";
+echo " / / / / / / |/ |/ / ";
+echo "/_/ /_/ /_/|__/|__/  ";
+echo "---------------------";
+echo "Yet another unofficial mediawiki-docker cli";
+echo "mw 0.0.1, Sohom Datta 2020 ";

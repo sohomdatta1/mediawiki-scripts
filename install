@@ -31,7 +31,8 @@ bash -c 'php maintenance/install.php \
 git clone "https://gerrit.wikimedia.org/r/mediawiki/skins/Vector" skins/Vector;
 echo "wfLoadSkin( 'Vector' );" >> LocalSettings.php;
 
-echo "export MW_INSTALL_DIR="$(pwd) >> ~/.bashrc;
+echo "export MW_INSTALL_DIR="$(pwd)  >> ~/.bashrc;
 echo "export MW_DOCKER_UID=$(id -u)" >> ~/.bashrc;
 echo "export MW_DOCKER_GID=$(id -g)" >> ~/.bashrc;
 
+git review -s --verbose
