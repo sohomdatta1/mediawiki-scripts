@@ -3,7 +3,7 @@
 set -e
 cd $MW_INSTALL_DIR;
 git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/"$@".git extensions/"$@";
-( cd "$@";
+(cd "$MW_INSTALL_DIR/extensions/$@";
 git review -s --verbose; )
 echo "wfLoadExtension( '"$@"' );" >> LocalSettings.php
 docker-compose exec mediawiki bash -c 'php maintenance/update.php'
