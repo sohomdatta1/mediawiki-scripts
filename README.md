@@ -5,6 +5,7 @@ A bunch of convenience scripts that I personally use to create and spin-up a [Me
 ## Setup
 
 > :hand: [`docker`](https://docs.docker.com/engine/install/) and [`docker-compose`](https://docs.docker.com/compose/install/) must be installed before cloning this repo.
+
 > :warning: Follow the [post-install instructions](https://docs.docker.com/engine/install/linux-postinstall/) to make sure you can run `docker` commands without `sudo`.
 
 * Git clone this repository
