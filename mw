@@ -2,10 +2,10 @@
 
 mw () {
 	if [[ "$@" == "" ]]; then
-		cd $MW_INSTALL_DIR;
+		cd $MW_INSTALL_DIR
 	else
-		$MW_SCRIPTS_DIR/"$@";
+		$MW_SCRIPTS_DIR/"$@"
 	fi
 }
 
-complete -W "install reinstall start stop bash get config git-update version help" mw;
+complete -W "install reinstall start stop bash get config git-update version help" mw

@@ -1,14 +1,14 @@
 #!/bin/bash
-printf "\nUsage: mw [OPTIONS]\n\nYet another unofficial mediawiki-docker cli\n\n";
-printf " start                Start up the instance\n";
-printf " stop                 Saves the state of the docker instance and shuts it down\n";
-printf " destroy              Destroys the docker instance\n";
-printf " reinstall            Re installs MediaWiki\n";
-printf " bash                 Runs bash as root in the docker instance\n";
-printf " install              Clones the MediaWiki source code in the current directory and creates initial instance all in one command.\n";
-printf " <nothing>            Convenience shortcut to the directory where the source code was cloned.\n";
-printf " config               Convenience shortcut to viewing the LocalSettings.php file of the mediawiki instance\n";
-printf " get <extensionname>  Clones the repository to the extensions/ directory adds wfLoadExtension( 'extensionname' ); to the LocalSettings.php and runs the update script.\n";
+printf "\nUsage: mw [OPTIONS]\n\nYet another unofficial mediawiki-docker cli\n\n"
+printf " start                Start up the instance\n"
+printf " stop                 Saves the state of the docker instance and shuts it down\n"
+printf " destroy              Destroys the docker instance\n"
+printf " reinstall            Re installs MediaWiki\n"
+printf " bash                 Runs bash as root in the docker instance\n"
+printf " install              Clones the MediaWiki source code in the current directory and creates initial instance all in one command.\n"
+printf " <nothing>            Convenience shortcut to the directory where the source code was cloned.\n"
+printf " config               Convenience shortcut to viewing the LocalSettings.php file of the mediawiki instance\n"
+printf " get <extensionname>  Clones the repository to the extensions/ directory adds wfLoadExtension( 'extensionname' ); to the LocalSettings.php and runs the update script.\n"
 printf " git-update           Updates all the cloned extensions and skins.\n"
-printf " version              Version number and some cool ascii art\n";
-printf " help                 You are here :)";
+printf " version              Version number and some cool ascii art\n"
+printf " help                 You are here :)"

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -e;
-git clone https://gerrit.wikimedia.org/r/mediawiki/core.git mediawiki;
-cd mediawiki;
+set -e
+git clone https://gerrit.wikimedia.org/r/mediawiki/core.git mediawiki
+cd mediawiki
 cat > docker-compose.override.yml <<EOF 
 version: '3.7'
 services:
@@ -10,29 +10,33 @@ services:
     user: "\${MW_DOCKER_UID}:\${MW_DOCKER_GID}"
 EOF
 
-export MW_DOCKER_UID=$(id -u);
-export MW_DOCKER_GID=$(id -g);
+cat > .env <<EOF
+MW_DOCKER_PORT=8080
+MW_SCRIPT_PATH=/w
+MW_SERVER=http://localhost:8080
+MEDIAWIKI_USER=Admin
+MEDIAWIKI_PASSWORD=dockerpass
+XDEBUG_CONFIG=''
+EOF
+
+echo "MW_DOCKER_UID=$(id -u)
+MW_DOCKER_GID=$(id -g)" >> .env
+
+export MW_DOCKER_UID=$(id -u)
+export MW_DOCKER_GID=$(id -g)
 
 # -d is detached mode - runs containers in the background:
-docker-compose up -d;
+docker-compose up -d
 
-docker-compose exec mediawiki composer update;
+docker-compose exec mediawiki composer update
 
-docker-compose exec mediawiki \
-bash -c 'php maintenance/install.php \
- --server $MW_SERVER \
- --scriptpath=$MW_SCRIPTPATH \
- --dbtype $MW_DBTYPE \
- --dbpath $MW_DBPATH \
- --lang $MW_LANG \
- --pass $MW_PASS \
- $MW_SITENAME $MW_USER';
+docker-compose exec mediawiki /bin/bash /docker/install.sh
 
-git clone "https://gerrit.wikimedia.org/r/mediawiki/skins/Vector" skins/Vector;
-echo "wfLoadSkin( 'Vector' );" >> LocalSettings.php;
+git clone "https://gerrit.wikimedia.org/r/mediawiki/skins/Vector" skins/Vector
+echo "wfLoadSkin( 'Vector' );" >> LocalSettings.php
 
-echo "export MW_INSTALL_DIR="$(pwd)  >> ~/.bashrc;
-echo "export MW_DOCKER_UID=$(id -u)" >> ~/.bashrc;
-echo "export MW_DOCKER_GID=$(id -g)" >> ~/.bashrc;
+echo "export MW_INSTALL_DIR="$(pwd)  >> ~/.bashrc
+echo "export MW_DOCKER_UID=$(id -u)" >> ~/.bashrc
+echo "export MW_DOCKER_GID=$(id -g)" >> ~/.bashrc
 
 git review -s --verbose
