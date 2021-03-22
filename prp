@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd $MW_INSTALL_DIR
+docker-compose exec -u 0 mediawiki bash -c 'apt update && apt install djvulibre-bin netpbm'
+cat << EOF >> LocalSettings.php
+\$wgFileExtensions[] = 'djvu';
+\$wgDjvuDump = 'djvudump';
+\$wgDjvuRenderer = 'ddjvu';
+\$wgDjvuTxt = 'djvutxt';
+\$wgDjvuPostProcessor = 'pnmtojpeg';
+\$wgDjvuOutputExtension = 'jpg';
+EOF
+
+cp $MW_SCRIPTS_DIR/Wikisource-20210103174144.xml ./Wikisource-20210103174144.xml
+docker-compose exec -u 0 mediawiki bash -c 'php maintenance/importDump.php < ./Wikisource-20210103174144.xml'
+docker-compose exec -u 0 mediawiki bash -c 'php maintenance/rebuildrecentchanges.php'
+docker-compose exec -u 0 mediawiki bash -c 'php maintenance/initSiteStats.php'
+rm -rf ./Wikisource-20210103174144.xml
+

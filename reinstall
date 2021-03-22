@@ -5,20 +5,14 @@ cd $MW_INSTALL_DIR
 docker-compose down
 mv -f LocalSettings.php LocalSettings_old.php
 sudo rm -rf cache
+# has caused quite a bit of trouble recently
+sudo rm -rf vendor
 
 docker-compose up -d
 
 docker-compose exec mediawiki composer update
 
-docker-compose exec mediawiki \
-bash -c 'php maintenance/install.php \
---server $MW_SERVER \
---scriptpath=$MW_SCRIPTPATH \
---dbtype $MW_DBTYPE \
---dbpath $MW_DBPATH \
---lang $MW_LANG \
---pass $MW_PASS \
-$MW_SITENAME $MW_USER'
+docker-compose exec mediawiki /bin/bash /docker/install.sh
 
 mv -f LocalSettings.php /tmp/LocalSettings.php
 mv -f LocalSettings_old.php LocalSettings.php
