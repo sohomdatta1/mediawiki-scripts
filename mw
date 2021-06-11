@@ -3,9 +3,12 @@
 mw () {
 	if [[ "$@" == "" ]]; then
 		cd $MW_INSTALL_DIR
+	elif [[ "$@" == "script" ]]; then
+		# cause I'm tired of typing cd $MW_SCRIPTS_DIR
+		cd $MW_SCRIPTS_DIR
 	else
 		$MW_SCRIPTS_DIR/"$@"
 	fi
 }
 
-complete -W "install reinstall start stop bash get config git-update version help" mw
+complete -W "install reinstall start stop bash get config git-update version script help" mw
