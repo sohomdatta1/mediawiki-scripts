@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+cd $MW_INSTALL_DIR
+docker-compose exec mediawiki bash -c 'php maintenance/update.php'
+

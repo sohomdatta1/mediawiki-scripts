@@ -12,7 +12,7 @@ A bunch of convenience scripts that I personally use to create and spin-up a [Me
 * `cd` into the directory of the cloned repository
 * Give execute permissions to the current user for all scripts in the directory
 * run `./setup`
-* `source ~/.bashrc`
+* `source ~/.zshrc` (or `source ~/.bashrc`)
 * Navigate to your work-space and run `mw install`
 
 ## What you have
