@@ -1,5 +1,7 @@
 #!/bin/bash
 
 set -e
+echo "export MW_SCRIPTS_DIR="$(pwd) >> ~/.zshrc
 echo "export MW_SCRIPTS_DIR="$(pwd) >> ~/.bashrc
+echo "source "$(pwd)"/mw" >> ~/.zshrc
 echo "source "$(pwd)"/mw" >> ~/.bashrc

@@ -12,7 +12,7 @@ cat << EOF >> LocalSettings.php
 EOF
 
 cp $MW_SCRIPTS_DIR/Wikisource-20210103174144.xml ./Wikisource-20210103174144.xml
-docker-compose exec -u 0 mediawiki bash -c 'php maintenance/importDump.php < ./extensions/ProofreadPage/Wikisource-20210103174144.xml'
+docker-compose exec -u 0 mediawiki bash -c 'php maintenance/importDump.php < ./Wikisource-20210103174144.xml'
 docker-compose exec -u 0 mediawiki bash -c 'php maintenance/rebuildrecentchanges.php'
 docker-compose exec -u 0 mediawiki bash -c 'php maintenance/initSiteStats.php'
 rm -rf ./Wikisource-20210103174144.xml
