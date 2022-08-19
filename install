@@ -1,8 +1,19 @@
 #!/bin/bash
 
 set -e
-git clone https://gerrit.wikimedia.org/r/mediawiki/core.git mediawiki
-cd mediawiki
+if [[ $1 = 'skip-clone' ]]
+then
+  echo "Skipping git clone"
+  if [[ ! -d "$MW_INSTALL_DIR" ]]
+  then
+    echo "The directory $MW_INSTALL_DIR does not exist. Please create it and run this script with the 'skip-clone' parameter again."
+    exit 1
+  fi
+  cd $MW_INSTALL_DIR;
+else
+  git clone https://gerrit.wikimedia.org/r/mediawiki/core.git mediawiki
+  cd mediawiki
+fi
 cat > docker-compose.override.yml <<EOF 
 version: '3.7'
 services:
@@ -24,7 +35,7 @@ MW_DOCKER_GID=$(id -g)" >> .env
 
 export MW_DOCKER_UID=$(id -u)
 export MW_DOCKER_GID=$(id -g)
-
+exit
 # -d is detached mode - runs containers in the background:
 docker-compose up -d
 

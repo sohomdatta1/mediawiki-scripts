@@ -11,4 +11,4 @@ mw () {
 	fi
 }
 
-complete -W "install reinstall start stop bash get config git-update version script help" mw
+complete -W "install reinstall start stop bash get config git-update update version script help" mw

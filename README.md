@@ -25,6 +25,7 @@ You get a few commands that allow you to control the MediaWiki-docker instance
 * `mw reinstall`: Re installs MediaWiki
 * `mw bash`: Runs bash as root in the docker instance
 * `mw install`: Clones the MediaWiki source code in the current directory and creates initial instance all in one command.
+* `mw update`: Runs the database update script
 * `mw`: Convenience shortcut to the directory where the source code was cloned.
 * `mw config`: Convenience shortcut to viewing the LocalSettings.php file of the mediawiki instance
 * `mw get (extensionname)`: Clones the repository to the `extensions/` directory adds `wfLoadExtension( 'extensionname' );` to the LocalSettings.php and runs the update script.
